@@ -6,6 +6,13 @@ export default class LineRepository {
   /** @type {Line[]} */
   #lines = [];
 
+  /**
+   * @param {string} name
+   */
+  getLine(name) {
+    return this.#lines.find((line) => line.getName() === name) ?? null;
+  }
+
   getLines() {
     return this.#lines;
   }

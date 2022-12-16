@@ -16,6 +16,13 @@ export default class StationRepository {
     this.#lineRepository = lineRepository;
   }
 
+  /**
+   * @param {string} name
+   */
+  getStation(name) {
+    return this.#stations.find((station) => station.getName() === name) ?? null;
+  }
+
   getStations() {
     return this.#stations;
   }
