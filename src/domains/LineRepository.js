@@ -1,5 +1,6 @@
 import AppError from '../errors/AppError';
 import Line from './Line';
+import Station from './Station';
 
 export default class LineRepository {
   /** @type {Line[]} */
@@ -7,6 +8,13 @@ export default class LineRepository {
 
   getLines() {
     return this.#lines;
+  }
+
+  /**
+   * @param {Station} station
+   */
+  getLinesOfStation(station) {
+    return this.#lines.filter((line) => line.hasStation(station));
   }
 
   /**
@@ -26,6 +34,6 @@ export default class LineRepository {
     if (!this.#lines.some((line) => line.getName() === name)) {
       throw new AppError(`${name} 노선은 존재하지 않습니다.`);
     }
-    this.#lines = this.#lines.filter((line) => line.getName() === name);
+    this.#lines = this.#lines.filter((line) => line.getName() !== name);
   }
 }
