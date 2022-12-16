@@ -1,9 +1,10 @@
-import Line from '../domains/Line';
-import LineRepository from '../domains/LineRepository';
-import Station from '../domains/Station';
-import StationRepository from '../domains/StationRepository';
+import Line from '../domains/Line.js';
+import LineRepository from '../domains/LineRepository.js';
+import Station from '../domains/Station.js';
+import StationRepository from '../domains/StationRepository.js';
+import AppError from '../errors/AppError.js';
 
-export class SubwayService {
+export default class SubwayService {
   /** @type {LineRepository} */
   #lineRepository;
 
@@ -19,7 +20,9 @@ export class SubwayService {
    * @param {string} name
    */
   getStation(name) {
-    return this.#stationRepository.getStation(name);
+    const station = this.#stationRepository.getStation(name);
+    if (station === null) throw new AppError('존재하지 않는 역입니다.');
+    return station;
   }
 
   getStations() {
@@ -44,7 +47,9 @@ export class SubwayService {
    * @param {string} name
    */
   getLine(name) {
-    return this.#lineRepository.getLine(name);
+    const line = this.#lineRepository.getLine(name);
+    if (line === null) throw new AppError('존재하지 않는 노선입니다.');
+    return line;
   }
 
   getLines() {
@@ -63,12 +68,5 @@ export class SubwayService {
    */
   deleteLineByName(name) {
     this.#lineRepository.deleteLineByName(name);
-  }
-
-  /**
-   * @param {Station} station
-   */
-  getLinesOfStation(station) {
-    return this.#lineRepository.getLinesOfStation(station);
   }
 }

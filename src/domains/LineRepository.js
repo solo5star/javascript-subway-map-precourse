@@ -1,6 +1,6 @@
-import AppError from '../errors/AppError';
-import Line from './Line';
-import Station from './Station';
+import AppError from '../errors/AppError.js';
+import Line from './Line.js';
+import Station from './Station.js';
 
 export default class LineRepository {
   /** @type {Line[]} */

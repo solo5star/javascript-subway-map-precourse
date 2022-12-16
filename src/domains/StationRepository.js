@@ -1,6 +1,6 @@
-import AppError from '../errors/AppError';
-import LineRepository from './LineRepository';
-import Station from './Station';
+import AppError from '../errors/AppError.js';
+import LineRepository from './LineRepository.js';
+import Station from './Station.js';
 
 export default class StationRepository {
   /** @type {LineRepository} */
