@@ -1,5 +1,5 @@
-import AppError from '../errors/AppError';
-import Station from './Station';
+import AppError from '../errors/AppError.js';
+import Station from './Station.js';
 
 export default class Line {
   /** @type {string} */
