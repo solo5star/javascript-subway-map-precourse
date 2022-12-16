@@ -17,9 +17,6 @@
     "url": "https://github.com/solo5star/javascript-subway-map-precourse/issues"
   },
   "homepage": "https://github.com/solo5star/javascript-subway-map-precourse#readme",
-  "dependencies": {
-    "@woowacourse/mission-utils": "^1.0.6"
-  },
   "devDependencies": {
     "eslint": "^8.2.0",
     "eslint-config-airbnb-base": "^15.0.0",
